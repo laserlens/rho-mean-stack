@@ -12,18 +12,22 @@
   <link rel="stylesheet" href="vendors/bootstrap.min.css">
 </head>
 <body ng-controller="PeopleController as ctrl">
-  <button ng-click="ctrl.listPeople()">Get People</button>
-
-  <ul>
-    <li ng-repeat="person in ctrl.people">
-      <p>{{person.name}}</p>
-    </li>
-  </ul>
-
-  <div>
-    <label>Name:</label>
-    <input type="text" ng-model="ctrl.name">
-    <button ng-click="ctrl.addPerson()">Add Person</button>
-  </div>
+  <form class="text-center">
+    <label>Name: </label>
+    <input type="text" ng-model="ctrl.name" placeholder="Your Name">
+    <label>Hometown: </label>
+    <input type="text" ng-model="ctrl.hometown" placeholder="Your Hometown">
+    <label>Favorite Movie: </label>
+    <input type="text" ng-model="ctrl.favoriteMovie" placeholder="Your Favorite Movie">
+    <button class="btn-default btn-success" ng-click="ctrl.addPerson()">Add Person</button>
+  </form>
+  <button class="btn-default btn-primary btn-block" ng-click="ctrl.listPeople()">Get People</button>
+    <div class="row">
+      <div class="col-md-4 well" ng-repeat="person in ctrl.people">
+        <h4>Name: <em>{{person.name}}</em></h4>
+        <h4>Hometown: <em>{{person.hometown}}</em></h4>
+        <h4>Favorite Movie: <em>{{person.favoriteMovie}}</em></h4>
+      </div>
+    </div>
 </body>
 </html>
